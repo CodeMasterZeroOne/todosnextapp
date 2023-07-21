@@ -27,7 +27,6 @@ export default async function Home() {
       <ul className='pl-4'>
         <li>i was here</li>
         <li>i was here</li>
-        <li>i was here</li>
         {/* {allTodos ? allTodos.map(todo => (
           <TodoItem key={todo.id} {...todo} toggleTodo={toggleTodo} />
         ))
