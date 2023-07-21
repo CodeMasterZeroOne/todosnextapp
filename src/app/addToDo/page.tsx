@@ -5,18 +5,18 @@ import Link from "next/link"
 async function createTodo(data: FormData) {
     "use server"
 
-    // const title = data.get("title")?.valueOf()
+    const title = data.get("title")?.valueOf()
 
-    // if (typeof title !== "string" || title.length === 0) {
-    //     throw new Error("Invalid Title.")
-    // }
-
-    // const newTodo = await prisma.todos.create({
-    //     data: {
-    //         title: title,
-    //         completed: false
-    //     }
-    // })
+    if (typeof title !== "string" || title.length === 0) {
+        throw new Error("Invalid Title.")
+    }
+    console.log('title is', title)
+    const newTodo = await prisma.todos.create({
+        data: {
+            title: title,
+            completed: false
+        }
+    })
     // console.log('added new todo:', newTodo)
     redirect("/")
 }
