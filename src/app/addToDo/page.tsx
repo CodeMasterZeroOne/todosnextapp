@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation"
 import { prisma } from "@/db"
 import Link from "next/link"
+import { revalidateTag } from "next/cache"
 
 async function createTodo(data: FormData) {
     "use server"
@@ -18,6 +19,7 @@ async function createTodo(data: FormData) {
         }
     })
     // console.log('added new todo:', newTodo)
+    revalidateTag('todos')
     redirect("/")
 }
 
